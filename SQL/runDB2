@@ -1,0 +1,33 @@
+import sqlite3
+
+import datetime
+import time
+
+conn = sqlite3.connect('test.db')
+
+c = conn.cursor()
+
+
+idfordb = 4
+keyword = 'python test'
+value = 7
+
+#datetime.datetime refers to a combination of time and date
+#time.time returns time in seconds
+#thus the following line accordingly calls for time in seconds converted to a string
+
+datetime = date = str(datetime.datetime.fromtimestamp(int(time.time())).strftime('%Y-%m-%d %H:%M:%S'))
+
+
+c.execute("INSERT INTO stuffToPlot (id, unix, datestamp, keyword, value) VALUES ( ?,?,?,?,?)", (idfordb, time.time(), date, keyword, value))
+conn.commit()
+
+	
+
+
+
+
+# def tableCreate():
+# 	c.execute("CREATE TABLE stuffToPlot(id int, unix real, datetime text, keyword text, value real)")
+
+
